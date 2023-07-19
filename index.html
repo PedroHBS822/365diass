@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O tempo passa rápido</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Ubuntu', sans-serif;
+            color: #F56677;
+        }
+        body {
+            background-color: FEFEFE;
+        }
+        .countdown {
+          text-align: center;
+          font-size: 40px;
+          font-weight: bold;
+        }
+        .countdown-item {
+          display: inline-block;
+          margin: 0 10px;
+        }
+        .countdown-label {
+          font-size: 30px;
+          font-weight: bold;
+        }
+        section {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        h1 {
+            text-align: center;
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 40px;
+            }
+            .countdown-label {
+                font-size: 15px;
+            }
+            .countdown {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <section>
+        <h1>365 DIAS</h1>
+        <div class="countdown" id="countdown">
+        <div class="countdown-item">
+            <span id="days"></span>
+            <div class="countdown-label">Dias</div>
+        </div>
+        <div class="countdown-item">
+            <span id="hours"></span>
+            <div class="countdown-label">Horas</div>
+        </div>
+        <div class="countdown-item">
+            <span id="minutes"></span>
+            <div class="countdown-label">Minutos</div>
+        </div>
+        <div class="countdown-item">
+            <span id="seconds"></span>
+            <div class="countdown-label">Segundos</div>
+        </div>
+        </div>
+    </section>
+    <audio src="SnapInsta.io - Ed Sheeran - Thinking Out Loud (Official Music Video) (128 kbps).mp3" autoplay loop></audio>
+    <script>
+      // Definir a data-alvo (19 de julho de 2023 às 11:06)
+      var targetDate = new Date("July 22, 2023 00:00:00").getTime();
+  
+      // Atualizar a contagem regressiva a cada segundo
+      var countdown = setInterval(function() {
+        // Obter a data e hora atual
+        var now = new Date().getTime();
+  
+        // Calcular a diferença entre a data-alvo e a data atual
+        var difference = targetDate - now;
+  
+        // Calcular os dias, horas, minutos e segundos restantes
+        var days = Math.floor(difference / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+        var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+        var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+        var seconds = Math.floor((difference % (1000 * 60)) / 1000).toString().padStart(2, '0');
+  
+        // Exibir a contagem regressiva
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+  
+        // Quando a contagem regressiva terminar
+        if (difference < 0) {
+          clearInterval(countdown);
+          document.getElementById("countdown").innerHTML = "A contagem regressiva terminou! Alegria!";
+        }
+  
+      }, 1000);
+    </script>
+  </body>
+</html>
