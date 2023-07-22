@@ -50,12 +50,16 @@
                 font-size: 20px;
             }
         }
+        #texto-especial {
+            display: none;
+            margin-top: 50px;
+        }
     </style>
 </head>
 <body>
     
     <section>
-        <h1>365 DIAS</h1>
+        <h1 id="tit">365 DIAS</h1>
         <div class="countdown" id="countdown">
         <div class="countdown-item">
             <span id="days"></span>
@@ -74,6 +78,14 @@
             <div class="countdown-label">Segundos</div>
         </div>
         </div>
+    </section>
+    <section id="texto-especial">
+        <h1>365dias</h1>
+        <p>1 ano de namoro amor!!!!!</p>
+        <p>Ao longo desse ano, compartilhamos sorrisos, risadas e lágrimas, construindo memórias inesquecíveis. Cada momento ao seu lado foi como uma página de um livro mágico, onde a história do nosso amor foi sendo escrita com ternura e afeto.</p>
+        <p>Nossas mãos entrelaçadas, nossos olhares que se encontram são provas do nosso grande amor nesse ano. É incrível perceber como, mesmo após um ano, ainda descubro novas razões para amar você.</p>
+        <p>Eu te amo muito muito muito mesmo!</p>
+        <p>Ass: Pedro Henrique B. Silva</p>
     </section>
     <audio src="SnapInsta.io - Ed Sheeran - Thinking Out Loud (Official Music Video) (128 kbps).mp3" autoplay loop></audio>
     <script>
@@ -103,7 +115,14 @@
         // Quando a contagem regressiva terminar
         if (difference < 0) {
           clearInterval(countdown);
-          document.getElementById("countdown").innerHTML = "A contagem regressiva terminou! Alegria!";
+          document.getElementById("countdown").innerHTML = " ";
+          document.getElementById("tit").innerHTML = " ";
+        }
+        if (difference < 0) {
+
+            // Mostrar a seção com o texto especial
+            var textoEspecial = document.getElementById("texto-especial");
+            textoEspecial.style.display = "block";
         }
   
       }, 1000);
